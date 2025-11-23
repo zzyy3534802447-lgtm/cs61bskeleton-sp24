@@ -246,7 +246,7 @@ public class Model {
                 if(myValue>score) score=myValue;
                 return ;
                 //两不一样
-                 } else {board.move(x,targetY,currTile);
+                 } else {if(targetY!=y)board.move(x,targetY,currTile);
                          return;
                    }
 
@@ -281,9 +281,12 @@ public class Model {
     }
 
     public void tilt(Side side) {
+    board.setViewingPerspective(side);
+
         for(int x=0;x<size();x++){
             tiltColumn(x);
         }
+        board.setViewingPerspective(Side.NORTH);
         // TODO: Tasks 8 and 9. Fill in this function.
     }
 
@@ -293,7 +296,6 @@ public class Model {
 
      */
     public void tiltWrapper(Side side) {
-        board.setViewingPerspective(side);
         board.resetMerged();
         tilt(side);
     }
