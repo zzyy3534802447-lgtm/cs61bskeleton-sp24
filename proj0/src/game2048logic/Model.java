@@ -243,7 +243,8 @@ public class Model {
             if(board.tile(x,nextY)!=null && board.tile(x,nextY).value()==board.tile(x,y).value()&& !board.tile(x,nextY).wasMerged()) {
             board.move(x,nextY,currTile);
             myValue=currTile.value()*2;
-                if(myValue>score) score=myValue;
+               // if(myValue>score)
+                    score+=myValue;
                 return ;
                 //两不一样
                  } else {if(targetY!=y)board.move(x,targetY,currTile);
