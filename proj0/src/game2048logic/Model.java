@@ -227,21 +227,25 @@ public class Model {
         int myValue = currTile.value();
         int targetY = y;
         int nextY=y+1;
+        if(nextY==size())return;
         if(currTile==null)return;
-        while (board.tile(x,nextY)!=null && nextY<size()){
+        while (nextY<size()&&board.tile(x,nextY)==null){
             targetY=nextY;
             nextY++;
         }
-        if(board.tile(x,y)==null) return;
-        if(targetY==size()-1){
+        //if(board.tile(x,y)==null) return;
+        //上面3格子全是空的
+        if(nextY==size()){
             board.move(x,targetY,currTile);
         }
         else {
-            if(board.tile(x,nextY).value()==board.tile(x,y).value()&& !board.tile(x,nextY).wasMerged()) {
+            //上面有非空的格子，两个一样
+            if(board.tile(x,nextY)!=null && board.tile(x,nextY).value()==board.tile(x,y).value()&& !board.tile(x,nextY).wasMerged()) {
             board.move(x,nextY,currTile);
             myValue=currTile.value()*2;
                 if(myValue>score) score=myValue;
-                return;
+                return ;
+                //两不一样
                  } else {board.move(x,targetY,currTile);
                          return;
                    }
@@ -267,10 +271,19 @@ public class Model {
 
      * */
     public void tiltColumn(int x) {
+        for(int i=size()-1;i>=0;i--){
+            if(board.tile(x,i)!=null){
+                moveTileUpAsFarAsPossible(x,i);
+
+            }
+        }return;
         // TODO: Task 7. Fill in this function.
     }
 
     public void tilt(Side side) {
+        for(int x=0;x<size();x++){
+            tiltColumn(x);
+        }
         // TODO: Tasks 8 and 9. Fill in this function.
     }
 
@@ -280,6 +293,7 @@ public class Model {
 
      */
     public void tiltWrapper(Side side) {
+        board.setViewingPerspective(side);
         board.resetMerged();
         tilt(side);
     }
