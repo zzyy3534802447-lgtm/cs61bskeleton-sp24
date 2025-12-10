@@ -7,7 +7,7 @@ import java.util.List;
 
 import static com.google.common.truth.Truth.assertWithMessage;
 
-public class ArrayDeque61BPreconditionTest {
+public classArrayDeque61BPreconditionTest {
 
     @Test
     @DisplayName("ArrayDeque61B has no fields besides backing array and primitives")

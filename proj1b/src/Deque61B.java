@@ -120,7 +120,7 @@ public interface Deque61B<T> {
      * index is out of bounds. Does not alter the deque.
      *
      * @param index index to get
-     * @return element at {@code index} in the deque
+     * @return element at {@code index} in the deque;
      */
     T getRecursive(int index);
 }

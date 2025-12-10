@@ -62,7 +62,7 @@ public class JavaExercises {
             list.add(x);
             x=x*3+1;
         return hailstoneHelper(x,list);}
-    }
+    return null;}
 }
 
 
