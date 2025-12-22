@@ -1,5 +1,5 @@
 
-/*
+
 import browser.NgordnetQuery;
 import main.HistoryTextHandler;
 import ngrams.NGramMap;
@@ -9,11 +9,12 @@ import java.util.List;
 
 import static utils.Utils.*;
 import static com.google.common.truth.Truth.assertThat;
- */
+
+
+import ngrams.NGramMap;
 
 // uncomment this test whenever you are ready!
 public class HistoryTextHandlerTest {
-    /*
     @Test
     public void testHandle() {
         NGramMap ngm = new NGramMap(SHORT_WORDS_FILE, TOTAL_COUNTS_FILE);
@@ -26,5 +27,5 @@ public class HistoryTextHandlerTest {
                 """;
         assertThat(actual).isEqualTo(expected);
     }
-    */
+
 }
