@@ -4,17 +4,17 @@ import ngrams.TimeSeries;
 import org.knowm.xchart.BitmapEncoder;
 import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
-
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
 public class Plotter {
 
-    public static XYChart generateTimeSeriesChart(List<String> words, List<TimeSeries> lts) {
+    public static XYChart generateTimeSeriesChart(List<String> words, ArrayList<ngrams.TimeSeries> lts) {
         if (words.size() != lts.size()) {
             throw new IllegalArgumentException("List of words and List of time series objects must be the same length");
         }

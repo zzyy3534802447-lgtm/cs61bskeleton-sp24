@@ -2,15 +2,17 @@ package main;
 
 import browser.NgordnetQuery;
 import browser.NgordnetQueryHandler;
+import ngrams.NGramMap;
 import ngrams.TimeSeries;
 import plotting.Plotter;
 import org.knowm.xchart.XYChart;
 
-import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DummyHistoryHandler extends NgordnetQueryHandler {
-    @Override
-    public String handle(NgordnetQuery q) {
+   @Override
+   public String handle(NgordnetQuery q) {
         System.out.println("Got query that looks like:");
         System.out.println("Words: " + q.words());
         System.out.println("Start Year: " + q.startYear());
